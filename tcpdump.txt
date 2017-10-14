@@ -1,0 +1,5 @@
+#  Initial SYN
+tcpdump -vni ethX -w /file.pcal vlan and 'tcp[tcpflags] & (tcp-syn) != 0' and 'tcp[tcpflags] & (tcp-ack) == 0'
+
+#  tshark fields
+tshark -i ethX -T fields -e ip.proto -e ip.src -e tcp.srcport -e ip.dst -e tcp.dstport -E header=y -E separator=\; vlan and ...
